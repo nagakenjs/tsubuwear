@@ -30,6 +30,7 @@ public class AlermUtil {
         Intent i = new Intent(ctx, AlermReceiver.class);
         PendingIntent sender = PendingIntent.getBroadcast(ctx, ALERM, i, 0);
         AlarmManager am = (AlarmManager) ctx.getSystemService(Context.ALARM_SERVICE);
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             am.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), sender);
         } else {

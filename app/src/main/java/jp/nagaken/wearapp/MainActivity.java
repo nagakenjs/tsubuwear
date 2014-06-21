@@ -49,7 +49,7 @@ public class MainActivity extends Activity {
                 }
             }
         }
-        
+
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
         String[] time = pref.getString("alermtime", "12:00").split(":");
         AlermUtil.setAlermTime(this, Integer.valueOf(time[0]), Integer.valueOf(time[1]));
