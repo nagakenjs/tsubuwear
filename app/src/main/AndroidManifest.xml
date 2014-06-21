@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="jp.nagaken.wearapp">
 
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -19,6 +21,14 @@
         <receiver
             android:name="jp.nagaken.wearapp.AlermReceiver"
             android:process=":remote" />
+        <receiver
+            android:name="jp.nagaken.wearapp.BootReceiver"
+            android:permission="android.permission.RECEIVE_BOOT_COMPLETED" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" >
+                </action>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
