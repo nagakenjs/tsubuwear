@@ -5,7 +5,9 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
+import android.preference.PreferenceManager;
 
 import java.util.Calendar;
 
@@ -15,8 +17,23 @@ import java.util.Calendar;
 public class AlermUtil {
     private static final int ALERM = 0;
 
+    public static void setAlermTime(Context ctx) {
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(ctx);
+        String[] time = pref.getString("alermtime", "12:00").split(":");
+        int hour = Integer.valueOf(time[0]);
+        int minute = Integer.valueOf(time[1]);
+        setAlerm(ctx, hour, minute);
+    }
+
+    public static void saveAlermTime(Context ctx, int hour, int minute) {
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(ctx);
+        String[] time = pref.getString("alermtime", "12:00").split(":");
+        pref.edit().putString("alermtime", String.format("%02d:%02d", hour, minute)).commit();
+        setAlerm(ctx, hour, minute);
+    }
+
     @SuppressLint("NewApi")
-    public static void setAlermTime(Context ctx, int hour, int minute) {
+    private static void setAlerm(Context ctx, int hour, int minute) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
         calendar.set(Calendar.HOUR_OF_DAY, hour);

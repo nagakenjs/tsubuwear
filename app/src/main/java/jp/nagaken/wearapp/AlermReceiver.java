@@ -5,9 +5,7 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.res.Resources;
-import android.preference.PreferenceManager;
 import android.preview.support.v4.app.NotificationManagerCompat;
 import android.preview.support.wearable.notifications.RemoteInput;
 import android.preview.support.wearable.notifications.WearableNotifications;
@@ -48,8 +46,6 @@ public class AlermReceiver extends BroadcastReceiver {
 
 
         // 次の日のためのタイマーをセットする
-        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(ctx);
-        String[] time = pref.getString("alermtime", "12:00").split(":");
-        AlermUtil.setAlermTime(ctx, Integer.valueOf(time[0]), Integer.valueOf(time[1]));
+        AlermUtil.setAlermTime(ctx);
     }
 }

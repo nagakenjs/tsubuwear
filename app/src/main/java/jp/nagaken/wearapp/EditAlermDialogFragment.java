@@ -1,15 +1,12 @@
 package jp.nagaken.wearapp;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.Preference;
 import android.preference.PreferenceManager;
-import android.view.View;
 import android.widget.TimePicker;
 
 /**
@@ -33,8 +30,7 @@ public class EditAlermDialogFragment extends DialogFragment {
                     public void onClick(DialogInterface dialog, int which) {
                         int hour = picker.getCurrentHour();
                         int minute = picker.getCurrentMinute();
-                        AlermUtil.setAlermTime(getActivity(), hour, minute);
-                        pref.edit().putString("alermtime", String.format("%02d:%02d", hour, minute)).commit();
+                        AlermUtil.saveAlermTime(getActivity(), hour, minute);
                     }
                 })
                 .create();
