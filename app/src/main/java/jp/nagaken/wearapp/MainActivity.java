@@ -7,7 +7,9 @@ import android.app.DialogFragment;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.preview.support.v4.app.NotificationManagerCompat;
 import android.preview.support.wearable.notifications.RemoteInput;
 import android.preview.support.wearable.notifications.WearableNotifications;
@@ -47,6 +49,10 @@ public class MainActivity extends Activity {
                 }
             }
         }
+        
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
+        String[] time = pref.getString("alermtime", "12:00").split(":");
+        AlermUtil.setAlermTime(this, Integer.valueOf(time[0]), Integer.valueOf(time[1]));
     }
 
     @OnClick(R.id.button)
