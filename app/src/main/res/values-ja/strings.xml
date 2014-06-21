@@ -7,15 +7,15 @@
     <string name="action_settings">Settings</string>
     <string name="button">Tap!</string>
 
-    <string name="event_title">menu</string>
-    <string name="event_text">what is today\'s launch?</string>
+    <string name="event_title">メニュー</string>
+    <string name="event_text">今日のお昼はなんだろな</string>
 
-    <string name="menu_label">Menu</string>
+    <string name="menu_label">メニュー</string>
     <string-array name="menu_choices">
-        <item>Misokatsu</item>
-        <item>Tebasaki</item>
-        <item>Ko-chin</item>
-        <item>Akamiso</item>
+        <item>みそかつ</item>
+        <item>手羽先</item>
+        <item>名古屋コーチン</item>
+        <item>赤みそ</item>
     </string-array>
 
 </resources>
