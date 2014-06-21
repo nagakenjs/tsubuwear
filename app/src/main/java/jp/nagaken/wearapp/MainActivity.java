@@ -2,6 +2,7 @@
 package jp.nagaken.wearapp;
 
 import android.app.Activity;
+import android.app.DialogFragment;
 import android.app.Notification;
 import android.app.PendingIntent;
 import android.content.Intent;
@@ -26,6 +27,9 @@ public class MainActivity extends Activity {
     @InjectView(R.id.button)
     Button button;
 
+    @InjectView(R.id.timerButton)
+    Button timerButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +51,8 @@ public class MainActivity extends Activity {
                 startActivity(mapIntent);
             }
         }
+
+        AlermUtil.setAlermTime(this);
     }
 
     @OnClick(R.id.button)
@@ -74,6 +80,13 @@ public class MainActivity extends Activity {
 
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
         notificationManager.notify(notificationId, replyNotification);
+    }
+
+    @OnClick(R.id.timerButton)
+    public void clickTimerButton(Button button) {
+        DialogFragment df = new EditAlermDialogFragment();
+//        df.setTargetFragment(this, 0);
+        df.show(getFragmentManager(), "picker");
     }
 
 }
