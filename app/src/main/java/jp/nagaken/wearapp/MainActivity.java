@@ -14,6 +14,7 @@ import android.preview.support.wearable.notifications.RemoteInput;
 import android.preview.support.wearable.notifications.WearableNotifications;
 import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
+import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -35,6 +36,9 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.inject(this);
+
+        // デバッグ時のみボタンを表示する
+        button.setVisibility(BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
 
         Intent intent = getIntent();
         if (intent != null) {
