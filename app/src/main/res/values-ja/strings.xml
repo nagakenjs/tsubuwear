@@ -16,4 +16,7 @@
         <item>赤みそ</item>
     </string-array>
 
+    <string name="set_lunch_time">お昼ごはんの時間を設定しよう</string>
+    <string name="set_lunch_time_button">設定する</string>
+
 </resources>
