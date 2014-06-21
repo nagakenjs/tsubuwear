@@ -16,7 +16,7 @@
         <item>Akamiso</item>
     </string-array>
 
-
     <string name="set_lunch_time">Set your lunch time!</string>
     <string name="set_lunch_time_button">Setting</string>
+
 </resources>
