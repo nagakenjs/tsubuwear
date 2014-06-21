@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">WearApp</string>
-    <string name="title_activity_main">MainActivity</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="app_name">Notify launch!</string>
+    <string name="title_activity_main">Main</string>
     <string name="button">Tap!</string>
 
     <string name="event_title">menu</string>
