@@ -2,14 +2,13 @@
 package jp.nagaken.wearapp;
 
 import android.app.Activity;
-import android.app.Notification;
 import android.app.DialogFragment;
+import android.app.Notification;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.res.Resources;
-import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.preview.support.v4.app.NotificationManagerCompat;
 import android.preview.support.wearable.notifications.RemoteInput;
 import android.preview.support.wearable.notifications.WearableNotifications;
@@ -44,9 +43,12 @@ public class MainActivity extends Activity {
                 String choice = extra.getString(NotificationUtil.EXTRA_MENU);
                 if (TextUtils.isEmpty(choice)) {
                     Toast.makeText(this, "reply none", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(this, choice, Toast.LENGTH_SHORT).show();
+                    return;
                 }
+                Intent mapIntent = new Intent();
+                mapIntent.setAction(Intent.ACTION_VIEW);
+                mapIntent.setData(Uri.parse("geo:0,0?q=" + choice));
+                startActivity(mapIntent);
             }
         }
 
